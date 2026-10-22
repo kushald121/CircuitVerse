@@ -408,6 +408,8 @@ export function play(scope = globalScope, resetNodes = false) {
         if (stepCount > 1000000) { // Cyclic or infinite Circuit Detection
             showError('Simulation Stack limit exceeded: maybe due to cyclic paths or contention');
             forceResetNodesSet(true);
+            simulationArea.simulationQueue.reset();
+            break;
         }
     }
     // Check for Contentions
